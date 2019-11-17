@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import WorkshopForm from "../components/WorkshopForm";
 
 const PageWrapper = styled("div")`
   display: flex;
@@ -18,7 +19,8 @@ export default class Toolpage extends React.Component {
     return (
       <>
         <PageWrapper>
-          <Header>Welcome back, HSC/SEA Admit Workshop Coords!</Header>
+          <Header>wow ty for using my shit</Header>
+          <WorkshopForm></WorkshopForm>
         </PageWrapper>
       </>
     );

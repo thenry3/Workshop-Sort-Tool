@@ -5,10 +5,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router";
 
 import ToolPage from "./pages/Toolpage";
+import NavBar from "./components/NavBar";
 
 ReactDOM.render(
   <>
     <Router>
+      <NavBar />
       <Route exact path="/" component={ToolPage}></Route>
     </Router>
   </>,
