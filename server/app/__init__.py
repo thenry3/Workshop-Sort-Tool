@@ -15,7 +15,7 @@ def index():
 
 @app.route('/api/sort', methods=['POST'])
 def sortWorkshops():
-    if not request.json or not rows in request.json or not workshopsToAttend in request.json:
+    if not request.json or not "rows" in request.json or not "workshopsToAttend" in request.json:
         return status.HTTP_400_BAD_REQUEST
     matches = []
 
