@@ -94,7 +94,7 @@ const SubmitButton = styled("div")`
 
 export default class WorkshopForm extends React.Component<
   {},
-  { numSeries: number; PrefFile: any }
+  { numSeries: number; PrefFile: any; matches: any }
 > {
   constructor(props) {
     super(props);
@@ -104,6 +104,7 @@ export default class WorkshopForm extends React.Component<
     this.deleteSeries = this.deleteSeries.bind(this);
     this.storeFile = this.storeFile.bind(this);
     this.parseAndSend = this.parseAndSend.bind(this);
+    this.setMatches = this.setMatches.bind(this);
   }
 
   series = [1];
@@ -160,9 +161,17 @@ export default class WorkshopForm extends React.Component<
     });
   }
 
+  setMatches(matches) {
+    this.setState({
+      matches: matches
+    });
+  }
+
   parseAndSend() {
     let reader = new FileReader();
-    let arr = [];
+    let arr = this.series;
+    let set = this.setMatches;
+
     reader.onload = function() {
       console.log(
         reader.result
@@ -171,11 +180,26 @@ export default class WorkshopForm extends React.Component<
           .split("\r" + EOL)
           .map(row => row.split(","))
       );
+      fetch("https://thenry3.pythonanywhere.com/api/sort", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          rows: reader.result
+            .toString()
+            .replace(/['"]+/g, "")
+            .split("\r" + EOL)
+            .map(row => row.split(",")),
+          workshopsToAttend: arr
+        })
+      }).then(response => set(response.json()));
     };
     reader.readAsBinaryString(this.state.PrefFile);
   }
 
   render() {
+    if (this.state.matches) return <p>YAY</p>;
     return (
       <>
         <Wrapper>
