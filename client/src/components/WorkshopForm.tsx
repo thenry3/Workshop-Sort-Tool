@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
+import { EOL } from "os";
 
 const Wrapper = styled("div")`
   display: flex;
@@ -127,7 +128,7 @@ export default class WorkshopForm extends React.Component<
   }
 
   deleteSeries() {
-    if (this.state.numSeries == 1) return;
+    if (this.state.numSeries === 1) return;
     this.setState({
       numSeries: this.state.numSeries - 1
     });
@@ -167,7 +168,8 @@ export default class WorkshopForm extends React.Component<
         reader.result
           .toString()
           .replace(/['"]+/g, "")
-          .split("\n")
+          .split("\r" + EOL)
+          .map(row => row.split(","))
       );
     };
     reader.readAsBinaryString(this.state.PrefFile);
