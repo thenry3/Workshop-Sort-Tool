@@ -94,7 +94,7 @@ const SubmitButton = styled("div")`
 
 export default class WorkshopForm extends React.Component<
   {},
-  { numSeries: number; PrefFile: any; matches: any }
+  { numSeries: number; PrefFile: any; matches: any; loading: boolean }
 > {
   constructor(props) {
     super(props);
@@ -104,7 +104,7 @@ export default class WorkshopForm extends React.Component<
     this.deleteSeries = this.deleteSeries.bind(this);
     this.storeFile = this.storeFile.bind(this);
     this.parseAndSend = this.parseAndSend.bind(this);
-    this.setMatches = this.setMatches.bind(this);
+    this.set = this.set.bind(this);
   }
 
   series = [1];
@@ -112,7 +112,8 @@ export default class WorkshopForm extends React.Component<
   componentWillMount() {
     this.setState({
       numSeries: 1,
-      PrefFile: null
+      PrefFile: null,
+      loading: false
     });
   }
 
@@ -161,25 +162,30 @@ export default class WorkshopForm extends React.Component<
     });
   }
 
-  setMatches(matches) {
-    this.setState({
-      matches: matches
-    });
+  set(value, state) {
+    switch (state) {
+      case "matches":
+        this.setState({
+          matches: value
+        });
+        break;
+      case "loading":
+        this.setState({
+          loading: value
+        });
+      default:
+        break;
+    }
   }
 
   parseAndSend() {
     let reader = new FileReader();
     let arr = this.series;
-    let set = this.setMatches;
-
+    let set = this.set;
+    this.setState({
+      loading: true
+    });
     reader.onload = function() {
-      console.log(
-        reader.result
-          .toString()
-          .replace(/['"]+/g, "")
-          .split("\r" + EOL)
-          .map(row => row.split(","))
-      );
       fetch("https://thenry3.pythonanywhere.com/api/sort", {
         method: "POST",
         headers: {
@@ -197,7 +203,8 @@ export default class WorkshopForm extends React.Component<
         if (response.status == 400) console.log("YOU FUCKED UP");
         else {
           console.log(response.json());
-          set(response.json());
+          set(response.json(), "matches");
+          set(false, "loading");
         }
       });
     };
@@ -206,6 +213,7 @@ export default class WorkshopForm extends React.Component<
 
   render() {
     if (this.state.matches) return <p>YAY</p>;
+    if (this.state.loading) return <p>LOADING MY DICK</p>;
     return (
       <>
         <Wrapper>

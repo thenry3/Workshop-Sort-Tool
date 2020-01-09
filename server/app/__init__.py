@@ -87,6 +87,6 @@ def sortWorkshops():
 
     for person in personMatches:
         matches.append(
-            {'Name': person, 'Email': emails[person], 'Preferences': personMatches[person]})
+            {'Name': person, 'Email': emails[person], 'Matches': personMatches[person]})
 
     return jsonify({'matches': matches, 'columns': columns}), status.HTTP_200_OK
