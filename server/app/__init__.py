@@ -69,7 +69,7 @@ def sortWorkshops():
                     workshop, 'dest', capacity=workshopCap, weight=0)
 
             for person, personPrefs in prefs.items():
-                workshopGraph.add_node(person, demand=1)
+                workshopGraph.add_node(person, demand=-1)
                 for j, workshop in enumerate(personPrefs):
                     workshopGraph.add_edge(
                         person, workshop, capacity=1, weight=-100 + (j * costDivision))
