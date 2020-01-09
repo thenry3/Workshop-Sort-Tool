@@ -194,8 +194,11 @@ export default class WorkshopForm extends React.Component<
           workshopsToAttend: arr
         })
       }).then(response => {
-        console.log(response);
-        set(response);
+        if (response.status == 400) console.log("YOU FUCKED UP");
+        else {
+          console.log(response.json());
+          set(response.json());
+        }
       });
     };
     reader.readAsBinaryString(this.state.PrefFile);

@@ -16,7 +16,7 @@ def index():
 @app.route('/api/sort', methods=['POST'])
 def sortWorkshops():
     if not request.json or not "rows" in request.json or not "workshopsToAttend" in request.json:
-        return status.HTTP_400_BAD_REQUEST
+        return jsonify({"error": "HENRY, YOU'RE A FUCKING IDIOT"}), status.HTTP_400_BAD_REQUEST
     matches = []
 
     seriesdict = {}  # dictionary of prefs for each series
@@ -30,7 +30,7 @@ def sortWorkshops():
                 seriescols[i] = row[i].split("[")[0].strip()
 
             if len(seriesdict) != len(request.json["workshopsToAttend"]):
-                return status.HTTP_400_BAD_REQUEST
+                return jsonify({"error": "HENRY, YOU'RE A FUCKING IDIOT"}), status.HTTP_400_BAD_REQUEST
         else:
             currname = row[1].strip()
             emails[currname] = row[2].strip()
