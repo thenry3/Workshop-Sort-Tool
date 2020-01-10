@@ -43,13 +43,14 @@ export default class Results extends React.Component<
   }
 
   makeXLSX() {
-    let arr = this.props.data["columns"];
-    let matches = [];
-    for (let obj in this.props.data["matches"]) {
-      matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
-    }
-    arr += matches;
-
+    console.log(this.props.data["columns"]);
+    // let arr = this.props.data["columns"];
+    // let matches = [];
+    // for (let obj in this.props.data["matches"]) {
+    //   matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
+    // }
+    // arr += matches;
+    //
     // let ws = XLSX.utils.aoa_to_sheet(arr);
     // let wb = XLSX.utils.book_new();
     // wb.SheetNames.push("Workshop Assignments");
