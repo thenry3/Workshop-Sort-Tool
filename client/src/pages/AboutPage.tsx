@@ -6,6 +6,7 @@ const Page = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const ProfilePic = styled("div")`
@@ -21,6 +22,14 @@ const ProfilePic = styled("div")`
 
 const Quote = styled("p")`
   width: 30%;
+  margin-top: 2vh;
+  text-align: center;
+`;
+
+const Name = styled("p")`
+  font-size: 2vw;
+  text-align: left;
+  width: 35%;
 `;
 
 export default class AboutPage extends React.Component {
@@ -32,8 +41,9 @@ export default class AboutPage extends React.Component {
           <Quote>
             "This website is the story of how two High School Conference
             workshop coordinators made their fellow Computer Science friend do
-            beep boop beep" - Henry Trinh '22
+            beep boop beep"
           </Quote>
+          <Name>- Henry Trinh '22</Name>
         </Page>
       </>
     );
