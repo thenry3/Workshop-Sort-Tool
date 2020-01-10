@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 ReactDOM.render(
   <>
     <Router>
-      <NavBar />
+      <Route path="/" component={NavBar} />
       <Route exact path="/" component={ToolPage}></Route>
     </Router>
   </>,
