@@ -34,7 +34,7 @@ const ItemName = styled("p")`
 const Title = styled("p")`
   margin-left: 2vw;
   text-align: center;
-  font-size: 1.8vw;
+  font-size: 2.2vw;
 `;
 
 export default class Navbar extends React.Component<RouteComponentProps> {
