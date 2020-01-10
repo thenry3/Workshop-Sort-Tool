@@ -43,7 +43,7 @@ export default class Results extends React.Component<
   }
 
   makeXLSX() {
-    console.log(this.props.data["columns"]);
+    console.log(this.props.data);
     // let arr = this.props.data["columns"];
     // let matches = [];
     // for (let obj in this.props.data["matches"]) {
