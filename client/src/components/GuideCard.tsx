@@ -11,9 +11,11 @@ const Card = styled("ul")`
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
   transition: 0.2s;
+  padding-left: 3vw;
+  padding-right: 3vw;
   &:hover {
     border: 3px solid #00b4f5;
-    background: rgba(0, 180, 245, 0.6);
+    background: rgba(0, 180, 245, 0.3);
   }
 `;
 
