@@ -28,7 +28,7 @@ const CardTitle = styled("p")`
 `;
 
 const Point = styled("li")`
-  margin-bottom: 1vh;
+  margin-bottom: 1.5vh;
 `;
 
 interface CardProps {
