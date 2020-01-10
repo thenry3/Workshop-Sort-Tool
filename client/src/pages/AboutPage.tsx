@@ -10,18 +10,18 @@ const Page = styled("div")`
 `;
 
 const ProfilePic = styled("div")`
-  width: 25vw;
-  height: 25vw;
+  width: 22vw;
+  height: 22vw;
   background: url(${Henry});
   background-position-x: 70%;
   background-position-y: 50%;
   background-size: cover;
-  margin-top: 5vh;
+  margin-top: 4vh;
   border-radius: 50%;
 `;
 
 const Quote = styled("p")`
-  width: 30%;
+  width: 35%;
   margin-top: 3vh;
   text-align: center;
 `;
@@ -29,7 +29,7 @@ const Quote = styled("p")`
 const Name = styled("p")`
   font-size: 1.8vw;
   text-align: right;
-  width: 35%;
+  width: 40%;
   margin-top: 0px;
 `;
 
