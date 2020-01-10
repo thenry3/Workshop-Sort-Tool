@@ -19,12 +19,21 @@ const ProfilePic = styled("div")`
   border-radius: 50%;
 `;
 
+const Quote = styled("p")`
+  width: 30%;
+`;
+
 export default class AboutPage extends React.Component {
   render() {
     return (
       <>
         <Page>
           <ProfilePic></ProfilePic>
+          <Quote>
+            "This website is the story of how two High School Conference
+            workshop coordinators made their fellow Computer Science friend do
+            beep boop beep" - Henry Trinh '22
+          </Quote>
         </Page>
       </>
     );
