@@ -54,6 +54,7 @@ export default class Results extends React.Component<
   constructor(props) {
     super(props);
     this.downloadXLSX = this.downloadXLSX.bind(this);
+    this.downloadCSV = this.downloadCSV.bind(this);
   }
 
   componentWillMount() {
@@ -69,6 +70,7 @@ export default class Results extends React.Component<
     }
     arr = arr.concat(matches);
 
+    // convert to xlsx
     let ws = XLSX.utils.aoa_to_sheet(arr);
     let wb = XLSX.utils.book_new();
     wb.SheetNames.push("Workshop Assignments");
@@ -89,14 +91,27 @@ export default class Results extends React.Component<
     saveAs(this.state.blob, "wsAssignments.xlsx");
   }
 
-  renderPreview() {}
+  downloadCSV() {
+    var csv = this.props.data["column"].join(",") + "\r\n";
+    this.state.rows.forEach(row => {
+      csv += row.join(",") + "\r\n";
+    });
+
+    var hiddenLink = document.createElement("a");
+    hiddenLink.href = "data:text/csv;charset=utf-8," + encodeURI(csv);
+    hiddenLink.target = "_blank";
+    hiddenLink.download = "wsAssignments.csv";
+    hiddenLink.click();
+  }
 
   render() {
     return (
       <>
         <Wrapper>
           <Downloads>
-            <DownloadButton>Download CSV</DownloadButton>
+            <DownloadButton onClick={this.downloadCSV}>
+              Download CSV
+            </DownloadButton>
             <DownloadButton onClick={this.downloadXLSX}>
               Download Excel
             </DownloadButton>
