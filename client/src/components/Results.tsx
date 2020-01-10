@@ -109,7 +109,7 @@ export default class Results extends React.Component<
                     style={{
                       border: "1px solid black",
                       borderCollapse: "collapse",
-                      paddingRight: "5px"
+                      padding: "5px 15px"
                     }}
                   >
                     {column}
@@ -123,7 +123,7 @@ export default class Results extends React.Component<
                       style={{
                         border: "1px solid black",
                         borderCollapse: "collapse",
-                        paddingRight: "5px"
+                        padding: "5px auto"
                       }}
                     >
                       {item}
