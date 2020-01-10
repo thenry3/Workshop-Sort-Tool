@@ -27,7 +27,8 @@ const ItemName = styled("p")`
 
 export default class Navbar extends React.Component {
   refreshTool() {
-    if (useLocation().pathname == "/") window.location.reload();
+    // if (useLocation().pathname == "/") window.location.reload();
+    console.log(useLocation().pathname);
   }
   render() {
     return (
