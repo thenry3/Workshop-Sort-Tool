@@ -15,9 +15,8 @@ const DarkBack = styled("div")`
 `;
 
 const Pic = styled("img")`
-  max-width: 50%;
-  /* position: fixed; */
-  max-height: 50%;
+  max-width: 65%;
+  max-height: 65%;
 `;
 
 interface OverlayProps {
@@ -26,10 +25,14 @@ interface OverlayProps {
 }
 
 export default class Overlay extends React.Component<OverlayProps> {
+  close(e) {
+    if (e.target != this) return;
+    document.getElementById(this.props.id).style.height = "0vh";
+  }
   render() {
     return (
       <>
-        <DarkBack id={this.props.id}>
+        <DarkBack id={this.props.id} onClick={this.close.bind(this)}>
           <Pic src={this.props.src}></Pic>
         </DarkBack>
       </>
