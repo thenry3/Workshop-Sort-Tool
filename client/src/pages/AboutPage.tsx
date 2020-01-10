@@ -34,11 +34,10 @@ const Quote = styled("p")`
   text-align: center;
   font-size: 16px;
   @media only screen and (max-width: 700px) {
-    font-size: 11px;
+    font-size: 12px;
     width: 50%;
   }
   @media only screen and (max-width: 600px) {
-    font-size: 11px;
     width: 60%;
   }
 `;
