@@ -35,18 +35,17 @@ interface ResultsProps {
 
 export default class Results extends React.Component<
   ResultsProps,
-  { loading: any; blob: any }
+  { blob: any }
 > {
   constructor(props) {
     super(props);
-    this.makeXLSX = this.makeXLSX.bind(this);
     this.downloadXLSX = this.downloadXLSX.bind(this);
   }
 
-  makeXLSX() {
+  componentWillMount() {
     let arr = [this.props.data["columns"]];
     let matches = [];
-    console.log(this.props.data["matches"]);
+
     for (let i = 0; i < this.props.data["matches"].length; i++) {
       let obj = this.props.data["matches"][i];
       let tempArr = [obj["Name"], obj["Email"]];
@@ -55,27 +54,20 @@ export default class Results extends React.Component<
       matches.push(tempArr);
     }
     arr = arr.concat(matches);
-    console.log(arr);
+
     let ws = XLSX.utils.aoa_to_sheet(arr);
     let wb = XLSX.utils.book_new();
     wb.SheetNames.push("Workshop Assignments");
     wb.Sheets["Workshop Assignments"] = ws;
+
     let wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
     var buf = new ArrayBuffer(wbout.length); //convert s to arrayBuffer
     var view = new Uint8Array(buf); //create uint8array as viewer
     for (var i = 0; i < wbout.length; i++) view[i] = wbout.charCodeAt(i) & 0xff; //convert to octet
+
     this.setState({
-      loading: false,
       blob: new Blob([buf], { type: "application/octet-stream" })
     });
-  }
-
-  componentWillMount() {
-    this.setState({
-      loading: true
-    });
-    this.makeXLSX();
-    console.log(this.props.data);
   }
 
   downloadXLSX() {
@@ -83,7 +75,6 @@ export default class Results extends React.Component<
   }
 
   render() {
-    if (this.state.loading) return <p>LOADING MORE DICK!!!</p>;
     return (
       <>
         <Wrapper>
@@ -93,6 +84,7 @@ export default class Results extends React.Component<
               Download Excel
             </DownloadButton>
           </Downloads>
+          <p>{this.props.data["stringRep"]}</p>
         </Wrapper>
       </>
     );

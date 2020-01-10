@@ -10,6 +10,7 @@ autopep8 = "*"
 flask = "*"
 flask-restful = "*"
 flask-api = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"

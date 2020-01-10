@@ -3,6 +3,7 @@ from flask_api import status
 from flask_restful import Api
 import networkx as nx
 import math
+import pandas as pd
 
 app = Flask(__name__, static_folder="../../client/build/static",
             template_folder="../../client/build")
@@ -85,8 +86,12 @@ def sortWorkshops():
                         prefs[person].remove(workshop)
         i += 1
 
+    df = pd.DataFrame(columns=columns)
+    i = 0
     for person in personMatches:
         matches.append(
             {'Name': person, 'Email': emails[person], 'Matches': personMatches[person]})
+        df.loc[i] = [person, emails[person]] + personMatches[person]
+        i += 1
 
-    return jsonify({'matches': matches, 'columns': columns}), status.HTTP_200_OK
+    return jsonify({'matches': matches, 'columns': columns, 'stringRep': df.to_string()}), status.HTTP_200_OK
