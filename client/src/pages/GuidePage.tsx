@@ -8,7 +8,7 @@ import GuideCard from "../components/GuideCard";
 
 const Wrapper = styled("div")`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 `;
 

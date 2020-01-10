@@ -6,6 +6,7 @@ const NavWrapper = styled("div")`
   display: flex;
   justify-content: space-between;
   font-family: "Montserrat", sans-serif;
+  align-items: center;
 `;
 
 const Item = styled(Link)`
@@ -32,6 +33,8 @@ const ItemName = styled("p")`
 
 const Title = styled("p")`
   margin-left: 2vw;
+  text-align: center;
+  font-size: 1.8vw;
 `;
 
 export default class Navbar extends React.Component<RouteComponentProps> {

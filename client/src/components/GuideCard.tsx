@@ -13,6 +13,7 @@ const Card = styled("ul")`
   transition: 0.2s;
   padding-left: 3vw;
   padding-right: 3vw;
+  margin: 2vh 3vw;
   &:hover {
     border: 3px solid #00b4f5;
     background: rgba(0, 180, 245, 0.3);
