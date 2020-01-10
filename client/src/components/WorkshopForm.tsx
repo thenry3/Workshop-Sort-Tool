@@ -201,14 +201,20 @@ export default class WorkshopForm extends React.Component<
             .map(row => row.split(",")),
           workshopsToAttend: arr
         })
-      }).then(response => {
-        if (response.status == 400) console.log("YOU FUCKED UP");
-        else {
-          console.log(response.json());
-          set(response.json(), "matches");
-          set(false, "loading");
-        }
-      });
+      })
+        .then(response =>
+          response.json().then(data => ({
+            data: data,
+            status: response.status
+          }))
+        )
+        .then(res => {
+          if (res.status == 400) console.log("YOU FUCKED UP");
+          else {
+            set(res.data, "matches");
+            set(false, "loading");
+          }
+        });
     };
     reader.readAsBinaryString(this.state.PrefFile);
   }
