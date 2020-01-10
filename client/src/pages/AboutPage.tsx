@@ -9,9 +9,9 @@ const Page = styled("div")`
 `;
 
 const ProfilePic = styled("div")`
-  width: 10vw;
-  height: 10vw;
-  background: url(${Henry}) cover;
+  width: 100vw;
+  height: 100vw;
+  background: url(${Henry});
 `;
 
 export default class AboutPage extends React.Component {
