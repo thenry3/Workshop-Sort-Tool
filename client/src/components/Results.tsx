@@ -92,7 +92,7 @@ export default class Results extends React.Component<
   }
 
   downloadCSV() {
-    var csv = this.props.data["column"].join(",") + "\r\n";
+    var csv = this.props.data["columns"].join(",") + "\r\n";
     this.state.rows.forEach(row => {
       csv += row.join(",") + "\r\n";
     });
