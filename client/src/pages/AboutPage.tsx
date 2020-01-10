@@ -10,8 +10,8 @@ const Page = styled("div")`
 `;
 
 const ProfilePic = styled("div")`
-  width: 20vw;
-  height: 20vw;
+  width: 25vw;
+  height: 25vw;
   background: url(${Henry});
   background-position-x: 70%;
   background-position-y: 50%;
@@ -22,14 +22,15 @@ const ProfilePic = styled("div")`
 
 const Quote = styled("p")`
   width: 30%;
-  margin-top: 2vh;
+  margin-top: 3vh;
   text-align: center;
 `;
 
 const Name = styled("p")`
-  font-size: 2vw;
-  text-align: left;
+  font-size: 1.8vw;
+  text-align: right;
   width: 35%;
+  margin-top: 0px;
 `;
 
 export default class AboutPage extends React.Component {
