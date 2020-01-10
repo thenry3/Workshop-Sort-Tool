@@ -12,7 +12,6 @@ const DarkBack = styled("div")`
   align-items: center;
   height: 0vh;
   width: 100%;
-  opacity: 0;
 `;
 
 const Pic = styled("img")`
