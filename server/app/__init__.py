@@ -94,4 +94,4 @@ def sortWorkshops():
         df.loc[i] = [person, emails[person]] + personMatches[person]
         i += 1
 
-    return jsonify({'matches': matches, 'columns': columns, 'stringRep': df.to_string()}), status.HTTP_200_OK
+    return jsonify({'matches': matches, 'columns': columns, 'stringRep': df.to_html()}), status.HTTP_200_OK

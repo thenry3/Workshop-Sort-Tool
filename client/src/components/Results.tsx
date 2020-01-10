@@ -29,6 +29,10 @@ const DownloadButton = styled("div")`
   }
 `;
 
+const Preview = styled("div")`
+  overflow: scroll;
+`;
+
 interface ResultsProps {
   data: any;
 }
@@ -84,7 +88,7 @@ export default class Results extends React.Component<
               Download Excel
             </DownloadButton>
           </Downloads>
-          <p>{this.props.data["stringRep"]}</p>
+          <Preview>{this.props.data["stringRep"]}</Preview>
         </Wrapper>
       </>
     );
