@@ -28,11 +28,10 @@ interface CardProps {
 
 export default class GuideCard extends React.Component<CardProps> {
   openClose() {
-    document.getElementById(this.props.title).style.opacity = parseInt(
-      document.getElementById(this.props.title).style.opacity
-    )
-      ? "0"
-      : "1";
+    document.getElementById(this.props.title).style.height =
+      document.getElementById(this.props.title).style.height == "0vh"
+        ? "100vh"
+        : "0vh";
   }
 
   render() {

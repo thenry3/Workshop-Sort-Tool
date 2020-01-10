@@ -10,7 +10,7 @@ const DarkBack = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 0vh;
   width: 100%;
   opacity: 0;
 `;
