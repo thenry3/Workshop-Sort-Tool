@@ -12,7 +12,7 @@ const ProfilePic = styled("div")`
   width: 20vw;
   height: 20vw;
   background: url(${Henry});
-  background-position-x: 60%;
+  background-position-x: 70%;
   background-position-y: 50%;
   background-size: cover;
   margin-top: 5vh;
