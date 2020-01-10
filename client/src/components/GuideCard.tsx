@@ -14,9 +14,10 @@ const Card = styled("ul")`
   padding-left: 3vw;
   padding-right: 3vw;
   margin: 5vh 3vw;
+  position: relative;
   &:hover {
     border: 3px solid #00b4f5;
-    background: rgba(0, 180, 245, 0.2);
+    background: rgba(0, 180, 245, 0.1);
     bottom: 1.5vh;
   }
 `;
