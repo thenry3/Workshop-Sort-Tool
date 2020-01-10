@@ -11,6 +11,7 @@ app = Flask(__name__, static_folder="../../client/build/static",
 
 @app.route('/')
 @app.route('/about')
+@app.route('/guidelines')
 def index():
     return render_template('index.html')
 
