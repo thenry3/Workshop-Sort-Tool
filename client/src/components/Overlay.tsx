@@ -10,7 +10,6 @@ const DarkBack = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 0vh;
   width: 100%;
 `;
 
@@ -32,7 +31,11 @@ export default class Overlay extends React.Component<OverlayProps> {
   render() {
     return (
       <>
-        <DarkBack id={this.props.id} onClick={this.close.bind(this)}>
+        <DarkBack
+          id={this.props.id}
+          onClick={this.close.bind(this)}
+          style={{ height: "0vh" }}
+        >
           <Pic src={this.props.src}></Pic>
         </DarkBack>
       </>
