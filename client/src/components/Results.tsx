@@ -48,7 +48,10 @@ export default class Results extends React.Component<
     console.log(this.props.data["matches"]);
     for (let i = 0; i < this.props.data["matches"].length; i++) {
       let obj = this.props.data["matches"][i];
-      matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
+      let tempArr = [obj["Name"], obj["Email"]];
+      for (let j = 0; j < obj["Matches"].length; j++)
+        tempArr.push(obj["Matches"][j]);
+      matches.push(tempArr);
     }
     arr = arr.concat(matches);
     console.log(arr);
