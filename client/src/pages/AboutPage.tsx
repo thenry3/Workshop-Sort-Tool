@@ -16,7 +16,7 @@ const ProfilePic = styled("div")`
   background-position-x: 70%;
   background-position-y: 50%;
   background-size: cover;
-  margin-top: 4vh;
+  margin-top: 4.5vh;
   border-radius: 50%;
 `;
 
