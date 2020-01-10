@@ -13,9 +13,10 @@ const ProfilePic = styled("div")`
   height: 20vw;
   background: url(${Henry});
   background-position-x: 60%;
-  background-position-y: 50%
+  background-position-y: 50%;
   background-size: cover;
   margin-top: 5vh;
+  border-radius: 50%;
 `;
 
 export default class AboutPage extends React.Component {
