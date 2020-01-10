@@ -46,12 +46,12 @@ export default class Results extends React.Component<
     let arr = this.props.data["columns"];
     let matches = [];
     console.log(this.props.data["matches"]);
-    for (let obj in this.props.data["matches"]) {
-      //   matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
-      //   console.log(obj);
+    for (let i = 0; i < this.props.data["matches"].length; i++) {
+      let obj = this.props.data["matches"][i];
+      matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
     }
     arr += matches;
-    // console.log(arr);
+    console.log(arr);
     // let ws = XLSX.utils.aoa_to_sheet(arr);
     // let wb = XLSX.utils.book_new();
     // wb.SheetNames.push("Workshop Assignments");
