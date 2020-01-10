@@ -68,7 +68,8 @@ export default class Results extends React.Component<
     this.setState({
       loading: true
     });
-    this.makeXLSX();
+    // this.makeXLSX();
+    console.log(this.props.data);
   }
 
   downloadXLSX() {
