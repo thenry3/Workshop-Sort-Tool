@@ -175,6 +175,7 @@ export default class WorkshopForm extends React.Component<
         this.setState({
           loading: value
         });
+        break;
       default:
         break;
     }
