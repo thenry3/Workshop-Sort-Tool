@@ -14,8 +14,12 @@ const DarkBack = styled("div")`
 `;
 
 const Pic = styled("img")`
-  max-width: 65%;
-  max-height: 65%;
+  max-width: 75%;
+  max-height: 75%;
+  @media only screen and (max-width: 600px) {
+    max-width: 85%;
+    max-height: 85%;
+  }
 `;
 
 interface OverlayProps {
