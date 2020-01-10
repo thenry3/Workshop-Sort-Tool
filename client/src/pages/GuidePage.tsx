@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Spread from "../images/spreadsheet.png";
+import Form from "../images/form.png";
 
 import GuideCard from "../components/GuideCard";
 
@@ -15,6 +16,8 @@ const spread = [
   "First three columns must be Timestamp, Name, and Email, respectively."
 ];
 
+const form = [];
+
 export default class GuidePage extends React.Component {
   render() {
     return (
@@ -25,6 +28,7 @@ export default class GuidePage extends React.Component {
             points={spread}
             overlay={Spread}
           ></GuideCard>
+          <GuideCard title="Google Form Format" points={form} overlay={Form} />
         </Wrapper>
       </>
     );

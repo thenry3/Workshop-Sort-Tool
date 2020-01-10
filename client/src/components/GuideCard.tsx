@@ -7,9 +7,14 @@ const Card = styled("ul")`
   display: flex;
   flex-direction: column;
   width: fit-content;
-  border: 2px solid black;
+  border: 3px solid black;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    border: 3px solid #00b4f5;
+    background: rgba(0, 180, 245, 0.6);
+  }
 `;
 
 const CardTitle = styled("p")`

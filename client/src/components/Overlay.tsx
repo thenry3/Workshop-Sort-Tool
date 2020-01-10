@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const DarkBack = styled("div")`
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
   position: fixed;
   top: 0px;
   left: 0px;
