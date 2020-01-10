@@ -18,7 +18,7 @@ const Card = styled("ul")`
   &:hover {
     border: 3px solid #00b4f5;
     background: rgba(0, 180, 245, 0.1);
-    bottom: 1.5vh;
+    transform: translateY(-1.5vh);
   }
 `;
 
