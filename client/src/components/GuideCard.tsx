@@ -6,7 +6,7 @@ import Overlay from "./Overlay";
 const Card = styled("ul")`
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 30%;
   border: 3px solid black;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
@@ -25,7 +25,9 @@ const CardTitle = styled("p")`
   align-self: center;
 `;
 
-const Point = styled("li")``;
+const Point = styled("li")`
+  margin-bottom: 1vh;
+`;
 
 interface CardProps {
   title: string;

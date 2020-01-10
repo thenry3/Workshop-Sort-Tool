@@ -4,15 +4,20 @@ import { Link, RouteComponentProps } from "react-router-dom";
 
 const NavWrapper = styled("div")`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const Item = styled(Link)`
-  font-family: "Montserrat", sans-serif;
   font-size: 1.1vw;
   letter-spacing: 0.1em;
   color: black;
   text-decoration: none;
+`;
+
+const NavLinks = styled("div")`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const ItemName = styled("p")`
@@ -25,6 +30,10 @@ const ItemName = styled("p")`
   }
 `;
 
+const Title = styled("p")`
+  margin-left: 2vw;
+`;
+
 export default class Navbar extends React.Component<RouteComponentProps> {
   refreshTool() {
     // if (useLocation().pathname == "/") window.location.reload();
@@ -34,15 +43,18 @@ export default class Navbar extends React.Component<RouteComponentProps> {
     return (
       <>
         <NavWrapper>
-          <Item to="/" onClick={this.refreshTool.bind(this)}>
-            <ItemName>Tool</ItemName>
-          </Item>
-          <Item to="/guidelines">
-            <ItemName>Guidelines</ItemName>
-          </Item>
-          <Item to="/about">
-            <ItemName>About</ItemName>
-          </Item>
+          <Title>UCLA VSU</Title>
+          <NavLinks>
+            <Item to="/" onClick={this.refreshTool.bind(this)}>
+              <ItemName>Tool</ItemName>
+            </Item>
+            <Item to="/guidelines">
+              <ItemName>Guidelines</ItemName>
+            </Item>
+            <Item to="/about">
+              <ItemName>About</ItemName>
+            </Item>
+          </NavLinks>
         </NavWrapper>
       </>
     );
