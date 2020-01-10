@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavWrapper = styled("div")`
   display: flex;
@@ -26,11 +26,14 @@ const ItemName = styled("p")`
 `;
 
 export default class Navbar extends React.Component {
+  refreshTool() {
+    if (useLocation().pathname == "/") window.location.reload();
+  }
   render() {
     return (
       <>
         <NavWrapper>
-          <Item to="/">
+          <Item to="/" onClick={this.refreshTool.bind(this)}>
             <ItemName>Tool</ItemName>
           </Item>
           <Item to="/guidelines">
