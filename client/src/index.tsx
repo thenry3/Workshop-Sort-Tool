@@ -7,6 +7,7 @@ import { Route } from "react-router";
 import ToolPage from "./pages/Toolpage";
 import NavBar from "./components/NavBar";
 import AboutPage from "./pages/AboutPage";
+import GuidePage from "./pages/GuidePage";
 
 ReactDOM.render(
   <>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route path="/" component={NavBar} />
       <Route exact path="/" component={ToolPage}></Route>
       <Route path="/about" component={AboutPage}></Route>
+      <Route path="/guidelines" component={GuidePage}></Route>
     </Router>
   </>,
   document.getElementById("root")
