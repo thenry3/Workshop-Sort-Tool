@@ -12,6 +12,21 @@ const Wrapper = styled("div")`
   padding: 2vw;
   font-family: "Montserrat", sans-serif;
   width: 40%;
+  @media only screen and (max-width: 700px) {
+    width: 65%;
+  }
+  @media only screen and (max-width: 550px) {
+    width: 75%;
+  }
+`;
+
+const Guide = styled("p")`
+  text-align: center;
+  align-self: center;
+  font-size: 15px;
+  @media only screen and (max-width: 700px) {
+    font-size: 12px;
+  }
 `;
 
 const UploadDiv = styled("div")`
@@ -24,6 +39,9 @@ const UploadInput = styled("input")``;
 const UploadWarning = styled("p")`
   font-size: 1vw;
   margin-right: 2vw;
+  @media only screen and (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 const Separator = styled("hr")`
@@ -36,18 +54,37 @@ const SeriesInputDiv = styled("div")`
   flex-direction: column;
 `;
 
-const SeriesTitle = styled("p")``;
+const SeriesTitle = styled("p")`
+  @media only screen and (max-width: 800px) {
+    font-size: 12px;
+  }
+`;
 
 const Series = styled("div")`
   display: flex;
   margin-bottom: 1vh;
   justify-content: space-between;
   width: 25%;
+  @media only screen and (max-width: 1100px) {
+    width: 30%;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 35%;
+  }
+  @media only screen and (max-width: 500px) {
+    width: 40%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 50%;
+  }
 `;
 
 const SeriesLabel = styled("p")`
   font-size: 1vw;
   margin: auto 0px;
+  @media only screen and (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 const SeriesNumInput = styled("input")`
@@ -67,6 +104,10 @@ const Plus = styled(FaPlusCircle)`
   &:hover {
     color: #00b4f5;
   }
+  @media only screen and (max-width: 800px) {
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 const Minus = styled(FaMinusCircle)`
@@ -76,6 +117,10 @@ const Minus = styled(FaMinusCircle)`
   cursor: pointer;
   &:hover {
     color: #00b4f5;
+  }
+  @media only screen and (max-width: 800px) {
+    height: 20px;
+    width: 20px;
   }
 `;
 
@@ -91,6 +136,9 @@ const SubmitButton = styled("div")`
   &:hover {
     border: #00b4f5 1.5px solid;
     color: #00b4f5;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 13px;
   }
 `;
 
@@ -227,6 +275,7 @@ export default class WorkshopForm extends React.Component<
     return (
       <>
         <Wrapper>
+          <Guide>if y'all haven't read the guidelines, FUCKING READ IT</Guide>
           <UploadDiv>
             <UploadWarning>
               File uploaded <strong>MUST</strong> be in CSV format

@@ -14,6 +14,9 @@ const Item = styled(Link)`
   letter-spacing: 0.1em;
   color: black;
   text-decoration: none;
+  @media only screen and (max-width: 700px) {
+    font-size: 11px;
+  }
 `;
 
 const NavLinks = styled("div")`
@@ -35,6 +38,9 @@ const Title = styled("p")`
   margin-left: 2vw;
   text-align: center;
   font-size: 2.2vw;
+  @media only screen and (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 export default class Navbar extends React.Component<RouteComponentProps> {

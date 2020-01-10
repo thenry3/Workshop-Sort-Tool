@@ -12,6 +12,11 @@ const PageWrapper = styled("div")`
 const Header = styled("p")`
   font-size: 3vw;
   font-weight: bold;
+  text-align: center;
+  @media only screen and (max-width: 700px) {
+    font-size: 20px;
+    width: 90%;
+  }
 `;
 
 export default class Toolpage extends React.Component {

@@ -10,6 +10,10 @@ const Wrapper = styled("div")`
   display: flex;
   justify-content: center;
   width: 100%;
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const spread = [
@@ -24,7 +28,7 @@ const form = [
   "In order of questions: Name, Email, Workshop preferences for each series",
   "Name and Email fields must be short answer text",
   "Each series should be a multiple choice grid",
-  "Rows are 1st choice, 2nd choice, 3rd choice, etc. <-- THESE MUST BE IN ORDER LEFT TO RIGHT",
+  "Rows are 1st choice, 2nd choice, 3rd choice, etc. <-- THESE MUST BE IN ORDER TOP TO BOTTOM",
   "Columns are corresponding workshop names for each series",
   "Click on this card for an example of a proper google form layout"
 ];

@@ -20,16 +20,29 @@ const Card = styled("ul")`
     background: rgba(0, 180, 245, 0.1);
     transform: translateY(-1.5vh);
   }
+  @media only screen and (max-width: 700px) {
+    width: 80%;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const CardTitle = styled("p")`
   text-align: center;
   font-size: 1.7vw;
   align-self: center;
+  @media only screen and (max-width: 1000px) {
+    font-size: 23px;
+  }
 `;
 
 const Point = styled("li")`
   margin-bottom: 1.5vh;
+  font-size: 1vw;
+  @media only screen and (max-width: 1000px) {
+    font-size: 11px;
+  }
 `;
 
 interface CardProps {
