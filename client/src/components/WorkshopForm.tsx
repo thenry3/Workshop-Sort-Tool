@@ -187,8 +187,8 @@ export default class WorkshopForm extends React.Component<
     this.setState({
       loading: true
     });
-    reader.onload = function() {
-      fetch("https://thenry3.pythonanywhere.com/api/sort", {
+    reader.onload = async function() {
+      await fetch("https://thenry3.pythonanywhere.com/api/sort", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
