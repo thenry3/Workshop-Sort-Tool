@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 const NavWrapper = styled("div")`
   display: flex;
@@ -25,10 +25,10 @@ const ItemName = styled("p")`
   }
 `;
 
-export default class Navbar extends React.Component {
+export default class Navbar extends React.Component<RouteComponentProps> {
   refreshTool() {
     // if (useLocation().pathname == "/") window.location.reload();
-    console.log(useLocation().pathname);
+    console.log(this.props.location.pathname);
   }
   render() {
     return (
