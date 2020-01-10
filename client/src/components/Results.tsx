@@ -31,10 +31,12 @@ const DownloadButton = styled("div")`
 
 const Preview = styled("div")`
   overflow: scroll;
+  margin-top: 3vh;
 `;
 
 const Table = styled("table")`
   border: 1px solid black;
+  border-collapse: collapse;
 `;
 
 const Trow = styled("tr")`
@@ -103,13 +105,29 @@ export default class Results extends React.Component<
             <Table>
               <Trow>
                 {this.props.data["columns"].map(column => (
-                  <th>{column}</th>
+                  <th
+                    style={{
+                      border: "1px solid black",
+                      borderCollapse: "collapse",
+                      paddingRight: "5px"
+                    }}
+                  >
+                    {column}
+                  </th>
                 ))}
               </Trow>
               {this.state.rows.map(row => (
                 <Trow>
                   {row.map(item => (
-                    <td>{item}</td>
+                    <td
+                      style={{
+                        border: "1px solid black",
+                        borderCollapse: "collapse",
+                        paddingRight: "5px"
+                      }}
+                    >
+                      {item}
+                    </td>
                   ))}
                 </Trow>
               ))}
