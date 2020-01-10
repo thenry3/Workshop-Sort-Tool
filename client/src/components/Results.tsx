@@ -40,6 +40,7 @@ export default class Results extends React.Component<
   constructor(props) {
     super(props);
     this.makeXLSX = this.makeXLSX.bind(this);
+    this.downloadXLSX = this.downloadXLSX.bind(this);
   }
 
   makeXLSX() {
@@ -88,7 +89,7 @@ export default class Results extends React.Component<
         <Wrapper>
           <Downloads>
             <DownloadButton>Download CSV</DownloadButton>
-            <DownloadButton onClick={this.makeXLSX}>
+            <DownloadButton onClick={this.downloadXLSX}>
               Download Excel
             </DownloadButton>
           </Downloads>
