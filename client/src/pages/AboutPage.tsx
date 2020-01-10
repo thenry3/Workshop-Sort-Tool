@@ -20,6 +20,7 @@ export default class AboutPage extends React.Component {
       <>
         <Page>
           <ProfilePic></ProfilePic>
+          <p>TEST</p>
         </Page>
       </>
     );
