@@ -39,30 +39,29 @@ export default class Results extends React.Component<
 > {
   constructor(props) {
     super(props);
-    this.makeXLSX = this.makeXLSX.bind(globalThis);
+    this.makeXLSX = this.makeXLSX.bind(this);
   }
 
   makeXLSX() {
-    console.log(this.props.data);
-    // let arr = this.props.data["columns"];
-    // let matches = [];
-    // for (let obj in this.props.data["matches"]) {
-    //   matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
-    // }
-    // arr += matches;
-    //
-    // let ws = XLSX.utils.aoa_to_sheet(arr);
-    // let wb = XLSX.utils.book_new();
-    // wb.SheetNames.push("Workshop Assignments");
-    // wb.Sheets["Workshop Assignments"] = ws;
-    // let wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
-    // var buf = new ArrayBuffer(wbout.length); //convert s to arrayBuffer
-    // var view = new Uint8Array(buf); //create uint8array as viewer
-    // for (var i = 0; i < wbout.length; i++) view[i] = wbout.charCodeAt(i) & 0xff; //convert to octet
-    // this.setState({
-    //   loading: false,
-    //   blob: new Blob([buf], { type: "application/octet-stream" })
-    // });
+    let arr = this.props.data["columns"];
+    let matches = [];
+    for (let obj in this.props.data["matches"]) {
+      matches.push([obj["Name"], obj["Email"]] + obj["Matches"]);
+    }
+    arr += matches;
+
+    let ws = XLSX.utils.aoa_to_sheet(arr);
+    let wb = XLSX.utils.book_new();
+    wb.SheetNames.push("Workshop Assignments");
+    wb.Sheets["Workshop Assignments"] = ws;
+    let wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+    var buf = new ArrayBuffer(wbout.length); //convert s to arrayBuffer
+    var view = new Uint8Array(buf); //create uint8array as viewer
+    for (var i = 0; i < wbout.length; i++) view[i] = wbout.charCodeAt(i) & 0xff; //convert to octet
+    this.setState({
+      loading: false,
+      blob: new Blob([buf], { type: "application/octet-stream" })
+    });
   }
 
   componentWillMount() {
