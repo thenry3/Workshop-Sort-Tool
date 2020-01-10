@@ -123,7 +123,8 @@ export default class Results extends React.Component<
                       style={{
                         border: "1px solid black",
                         borderCollapse: "collapse",
-                        padding: "5px auto"
+                        paddingTop: "3px",
+                        paddingBottom: "3px"
                       }}
                     >
                       {item}
