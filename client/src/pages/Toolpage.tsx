@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WorkshopForm from "../components/WorkshopForm";
+import Results from "../components/Results";
 
 const PageWrapper = styled("div")`
   display: flex;

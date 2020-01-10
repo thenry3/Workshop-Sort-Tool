@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import { EOL } from "os";
 
+import Results from "./Results";
+
 const Wrapper = styled("div")`
   display: flex;
   flex-direction: column;
@@ -212,7 +214,8 @@ export default class WorkshopForm extends React.Component<
   }
 
   render() {
-    if (this.state.matches) return <p>YAY</p>;
+    if (this.state.matches)
+      return <Results data={this.state.matches}></Results>;
     if (this.state.loading) return <p>LOADING MY DICK</p>;
     return (
       <>
