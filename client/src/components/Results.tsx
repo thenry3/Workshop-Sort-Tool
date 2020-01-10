@@ -33,13 +33,21 @@ const Preview = styled("div")`
   overflow: scroll;
 `;
 
+const Table = styled("table")`
+  border: 1px solid black;
+`;
+
+const Trow = styled("tr")`
+  border: 1px solid black;
+`;
+
 interface ResultsProps {
   data: any;
 }
 
 export default class Results extends React.Component<
   ResultsProps,
-  { blob: any }
+  { blob: any; rows: any }
 > {
   constructor(props) {
     super(props);
@@ -70,13 +78,16 @@ export default class Results extends React.Component<
     for (var i = 0; i < wbout.length; i++) view[i] = wbout.charCodeAt(i) & 0xff; //convert to octet
 
     this.setState({
-      blob: new Blob([buf], { type: "application/octet-stream" })
+      blob: new Blob([buf], { type: "application/octet-stream" }),
+      rows: matches
     });
   }
 
   downloadXLSX() {
     saveAs(this.state.blob, "wsAssignments.xlsx");
   }
+
+  renderPreview() {}
 
   render() {
     return (
@@ -88,7 +99,22 @@ export default class Results extends React.Component<
               Download Excel
             </DownloadButton>
           </Downloads>
-          <Preview>{this.props.data["stringRep"]}</Preview>
+          <Preview>
+            <Table>
+              <Trow>
+                {this.props.data["columns"].map(column => (
+                  <th>{column}</th>
+                ))}
+              </Trow>
+              {this.state.rows.map(row => (
+                <Trow>
+                  {row.map(item => (
+                    <td>{item}</td>
+                  ))}
+                </Trow>
+              ))}
+            </Table>
+          </Preview>
         </Wrapper>
       </>
     );
