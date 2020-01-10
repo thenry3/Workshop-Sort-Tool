@@ -11,7 +11,7 @@ const Page = styled("div")`
 const ProfilePic = styled("div")`
   width: 10vw;
   height: 10vw;
-  background: url(${Henry}) cover no-repeat;
+  background: url(${Henry}) cover;
 `;
 
 export default class AboutPage extends React.Component {
@@ -20,7 +20,6 @@ export default class AboutPage extends React.Component {
       <>
         <Page>
           <ProfilePic></ProfilePic>
-          <p>TEST</p>
         </Page>
       </>
     );
