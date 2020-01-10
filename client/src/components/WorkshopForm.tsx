@@ -34,7 +34,9 @@ const UploadDiv = styled("div")`
   align-items: center;
   justify-content: flex-start;
 `;
-const UploadInput = styled("input")``;
+const UploadInput = styled("input")`
+  text-align: center;
+`;
 
 const UploadWarning = styled("p")`
   font-size: 1vw;
