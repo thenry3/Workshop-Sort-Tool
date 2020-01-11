@@ -23,7 +23,11 @@ const Wrapper = styled("div")`
 const Guide = styled("p")`
   text-align: center;
   align-self: center;
-  font-size: 15px;
+  font-size: 20px;
+  margin-top: 0px;
+  @media only screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
   @media only screen and (max-width: 700px) {
     font-size: 12px;
   }
@@ -33,6 +37,9 @@ const UploadDiv = styled("div")`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media only screen and (max-width: 350px) {
+    flex-direction: column;
+  }
 `;
 const UploadInput = styled("input")`
   text-align: center;
@@ -260,7 +267,7 @@ export default class WorkshopForm extends React.Component<
           }))
         )
         .then(res => {
-          if (res.status == 400) console.log("YOU FUCKED UP");
+          if (res.status === 400) console.log("YOU FUCKED UP");
           else {
             set(res.data, "matches");
             set(false, "loading");
@@ -273,11 +280,16 @@ export default class WorkshopForm extends React.Component<
   render() {
     if (this.state.matches)
       return <Results data={this.state.matches}></Results>;
-    if (this.state.loading) return <p>LOADING MY DICK</p>;
+    if (this.state.loading)
+      return <p>LOADING A FUCKLOAD OF PEANUT FUCKING BUTTER</p>;
     return (
       <>
         <Wrapper>
-          <Guide>if y'all haven't read the guidelines, FUCKING READ IT</Guide>
+          <Guide>
+            if y'all haven't read the guidelines
+            <br />
+            <strong>FUCKING READ IT</strong>
+          </Guide>
           <UploadDiv>
             <UploadWarning>
               File uploaded <strong>MUST</strong> be in CSV format

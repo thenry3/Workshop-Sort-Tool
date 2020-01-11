@@ -29,7 +29,7 @@ interface OverlayProps {
 
 export default class Overlay extends React.Component<OverlayProps> {
   close(e) {
-    if (e.target == e.currentTarget)
+    if (e.target === e.currentTarget)
       document.getElementById(this.props.id).style.height = "0vh";
   }
   render() {
