@@ -282,8 +282,10 @@ export default class WorkshopForm extends React.Component<
     this.setState({
       loading: true
     });
-    if (this.state.PrefFile == null)
+    if (this.state.PrefFile == null) {
+      set(false, "loading");
       set("PLEASE SELECT A CSV FILE TO PARSE", "error");
+    }
     reader.onload = async function() {
       await fetch("https://thenry3.pythonanywhere.com/api/sort", {
         method: "POST",
