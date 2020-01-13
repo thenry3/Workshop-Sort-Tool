@@ -322,7 +322,13 @@ export default class WorkshopForm extends React.Component<
 
     if (this.state.error)
       return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
           <p
             style={{
               textAlign: "center",
