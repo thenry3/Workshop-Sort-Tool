@@ -332,7 +332,7 @@ export default class WorkshopForm extends React.Component<
             ERROR
           </p>
           <p>{this.state.error}</p>
-          <ErrorButton onSubmit={this.reset.bind(this)}>
+          <ErrorButton onClick={this.reset.bind(this)}>
             I Understand
           </ErrorButton>
         </div>
