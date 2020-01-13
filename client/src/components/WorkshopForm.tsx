@@ -159,6 +159,7 @@ const ErrorButton = styled("div")`
   align-self: center;
   cursor: pointer;
   transition: 0.1s;
+  margin-top: 20px;
   &:hover {
     border: #00b4f5 1.5px solid;
     color: #00b4f5;
@@ -321,7 +322,15 @@ export default class WorkshopForm extends React.Component<
     if (this.state.error)
       return (
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <p style={{ textAlign: "center", fontSize: "2vw" }}>ERROR</p>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "2vw",
+              marginBottom: "0px"
+            }}
+          >
+            ERROR
+          </p>
           <p>{this.state.error}</p>
           <ErrorButton onSubmit={this.reset.bind(this)}>
             I Understand
