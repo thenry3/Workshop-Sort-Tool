@@ -321,7 +321,7 @@ export default class WorkshopForm extends React.Component<
     if (this.state.error)
       return (
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <p>ERROR</p>
+          <p style={{ textAlign: "center", fontSize: "2vw" }}>ERROR</p>
           <p>{this.state.error}</p>
           <ErrorButton onSubmit={this.reset.bind(this)}>
             I Understand
