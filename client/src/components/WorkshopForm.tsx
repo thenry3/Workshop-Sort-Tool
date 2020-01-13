@@ -151,9 +151,32 @@ const SubmitButton = styled("div")`
   }
 `;
 
+const ErrorButton = styled("div")`
+  border: black 1.5px solid;
+  text-align: center;
+  padding: 1vh 1vw;
+  width: 20vw;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.1s;
+  &:hover {
+    border: #00b4f5 1.5px solid;
+    color: #00b4f5;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 13px;
+  }
+`;
+
 export default class WorkshopForm extends React.Component<
   {},
-  { numSeries: number; PrefFile: any; matches: any; loading: boolean }
+  {
+    numSeries: number;
+    PrefFile: any;
+    matches: any;
+    loading: boolean;
+    error: any;
+  }
 > {
   constructor(props) {
     super(props);
@@ -221,6 +244,13 @@ export default class WorkshopForm extends React.Component<
     });
   }
 
+  reset() {
+    this.setState({
+      error: null,
+      matches: null
+    });
+  }
+
   set(value, state) {
     switch (state) {
       case "matches":
@@ -233,6 +263,10 @@ export default class WorkshopForm extends React.Component<
           loading: value
         });
         break;
+      case "error":
+        this.setState({
+          error: value
+        });
       default:
         break;
     }
@@ -267,10 +301,10 @@ export default class WorkshopForm extends React.Component<
           }))
         )
         .then(res => {
-          if (res.status === 400) console.log("YOU FUCKED UP");
+          set(false, "loading");
+          if (res.status === 400) set(res.data["error"], "error");
           else {
             set(res.data, "matches");
-            set(false, "loading");
           }
         });
     };
@@ -280,8 +314,21 @@ export default class WorkshopForm extends React.Component<
   render() {
     if (this.state.matches)
       return <Results data={this.state.matches}></Results>;
+
     if (this.state.loading)
       return <p>LOADING A FUCKLOAD OF PEANUT FUCKING BUTTER</p>;
+
+    if (this.state.error)
+      return (
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <p>ERROR</p>
+          <p>{this.state.error}</p>
+          <ErrorButton onSubmit={this.reset.bind(this)}>
+            I Understand
+          </ErrorButton>
+        </div>
+      );
+
     return (
       <>
         <Wrapper>
