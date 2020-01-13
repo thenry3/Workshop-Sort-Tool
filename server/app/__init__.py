@@ -16,8 +16,11 @@ def index():
     return render_template('index.html')
 
 
+# main sorting algorithm, using min cost flow
 @app.route('/api/sort', methods=['POST'])
 def sortWorkshops():
+    # theres no way you can fucking hit these error nessages unless you fuck up the front end code
+    # so dont fucking mess that front end code up
     if not request.json or not "rows" in request.json or not "workshopsToAttend" in request.json:
         return jsonify({"error": "HENRY, YOU'RE A FUCKING IDIOT"}), status.HTTP_400_BAD_REQUEST
     matches = []
@@ -25,7 +28,7 @@ def sortWorkshops():
     seriesdict = {}  # dictionary of prefs for each series
     seriescols = {}  # keeps track of which columns are for which series
     seriesworkshops = {}  # for each series, set of workshops belonging in each
-    emails = {}
+    emails = {}  # keeps track of emails corresponding to each person
     for count, row in enumerate(request.json["rows"]):
         if count == 0:
             for i in range(3, len(row)):
@@ -33,15 +36,16 @@ def sortWorkshops():
                 seriescols[i] = row[i].split("[")[0].strip()
 
             if len(seriesdict) != len(request.json["workshopsToAttend"]):
-                return jsonify({"error": "HENRY, YOU'RE A FUCKING IDIOT"}), status.HTTP_400_BAD_REQUEST
+                return jsonify({"error": "USE THE FUCKING BUTTONS TO ADD THE RIGHT NUMBER OF SERIES PLZ"}), status.HTTP_400_BAD_REQUEST
         else:
             currname = row[1].strip()
-            emails[currname] = row[2].strip()
+            email = row[2].strip()
+            emails[email] = currname
             for i in range(3, len(row)):
                 try:
-                    seriesdict[seriescols[i]][currname].append(row[i].strip())
+                    seriesdict[seriescols[i]][email].append(row[i].strip())
                 except:
-                    seriesdict[seriescols[i]][currname] = [row[i].strip()]
+                    seriesdict[seriescols[i]][email] = [row[i].strip()]
 
                 try:
                     seriesworkshops[seriescols[i]].add(row[i].strip())
@@ -60,6 +64,10 @@ def sortWorkshops():
         numWorkshops = len(workshops)
         workshopCap = math.ceil(numPersons / numWorkshops)
         costDivision = 100 // numWorkshops
+
+        if attend > numWorkshops:
+            return jsonify({"error": "MAKE SURE THE NUMBER OF FUCKING WORKSHOPS YOU WANT STUDENTS TO ATTEND FOR EACH SERIES IS LESS THAN OR \
+            EQUAL TO THE NUMBER OF WORKSHOPS OFFERED FOR EACH CORRESPONDING SERIES"}), status.HTTP_400_BAD_REQUEST
 
         for workshopNum in range(attend):
             columns.append(series.split(
@@ -92,7 +100,7 @@ def sortWorkshops():
     i = 0
     for person in personMatches:
         matches.append(
-            {'Name': person, 'Email': emails[person], 'Matches': personMatches[person]})
+            {'Name': emails[person], 'Email': person, 'Matches': personMatches[person]})
         df.loc[i] = [person, emails[person]] + personMatches[person]
         i += 1
 
