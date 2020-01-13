@@ -250,6 +250,7 @@ export default class WorkshopForm extends React.Component<
       error: null,
       matches: null
     });
+    this.series = this.series.map(() => 1);
   }
 
   set(value, state) {
